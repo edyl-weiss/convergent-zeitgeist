@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>Cultural Convergence</title>
+<title>Convergent Zeitgeist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -247,44 +247,185 @@ body{background:transparent;position:relative;min-height:100vh}
 .round.r1 .rt{text-shadow:0 0 14px var(--b4)} .round.r2 .rt{text-shadow:0 0 14px var(--b2)} .round.r3 .rt{text-shadow:0 0 14px var(--b3)}
 .ex{background:rgba(12,14,34,.62)}
 @media (prefers-reduced-motion: reduce){ .cosmos::after,.optics .photons,.optics.playing .spikes,.optics.playing .bloom{animation:none} }
+
+/* ===== streamlined bar ===== */
+.modes{display:none}
+.brand h1{font-size:clamp(38px,7vw,60px)}
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 10px;margin:0 -10px;
+  background:rgba(4,5,16,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:4px}
+.bar .tabs{display:flex;gap:2px}
+.bar .tabs button{background:none;border:0;color:var(--muted);font:600 14.5px/1 var(--body);padding:8px 10px;border-radius:4px}
+.bar .tabs button[aria-selected="true"]{color:var(--ink);background:rgba(255,255,255,.07);text-shadow:0 0 12px rgba(255,248,232,.6)}
+.bar .mid{flex:1;display:flex;gap:6px;justify-content:center;align-items:center;flex-wrap:wrap}
+.bar .info{display:flex;gap:8px;align-items:center}
+.bi{font:500 12px/1 var(--mono);color:var(--muted);letter-spacing:.03em;white-space:nowrap}
+.bi.stage{padding:5px 8px;border:1px solid currentColor;border-radius:4px}
+.bi.s1{color:var(--b4)} .bi.s2{color:var(--b2)} .bi.s3{color:var(--b3)}
+.bi.lives{color:var(--b1);letter-spacing:.15em;font-size:14px;text-shadow:0 0 8px var(--b1)}
+.bi.combo{color:var(--flare);text-shadow:0 0 10px var(--b2);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.6}}
+.ib{width:32px;height:32px;display:grid;place-items:center;border-radius:4px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);font:700 15px/1 var(--body);padding:0}
+.ib svg{width:17px;height:17px}
+.ib[aria-pressed="true"]{color:var(--b3);border-color:var(--b3);box-shadow:0 0 12px -3px var(--b3)}
+.pill{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:4px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);font:600 13px/1 var(--body)}
+.pill .pn{font:500 11px/1 var(--mono);color:var(--muted)}
+.pill.r1 .pt{color:var(--b4)} .pill.r2 .pt{color:var(--b2)} .pill.r3 .pt{color:var(--b3)}
+.pill[aria-current="true"]{border-color:rgba(255,255,255,.75);box-shadow:0 0 16px -5px rgba(214,224,255,.8)}
+.pill[disabled]{opacity:.4;cursor:not-allowed}
+.pill .pm{font-size:12px} .pill.solved .pm{color:var(--good)} .pill.failed .pm{color:var(--bad)}
+@media (max-width:560px){ .bar .mid{order:3;flex-basis:100%} .bar .tabs{flex:1} .pill{padding:6px 8px} }
+
+/* focal point letters */
+.focus .q{font:italic 600 44px/1 var(--display)}
+.focus .slots{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 14px;max-width:min(560px,86vw)}
+.focus .word{display:flex;gap:3px}
+.slot{width:18px;height:26px;border-bottom:2px solid rgba(214,224,255,.55);display:grid;place-items:end center;font:600 18px/1 var(--mono);color:var(--ink)}
+.slot.on{color:#fff;border-bottom-color:#fff;text-shadow:0 0 10px var(--flare)}
+.slot.sym{border:0;width:auto;color:var(--muted)}
+@media (max-width:560px){ .slot{width:13px;height:20px;font-size:14px} }
+.focus .ans{display:block}
+.optics.solved .focus{animation:nova-pop .7s cubic-bezier(.2,1.6,.4,1)}
+@keyframes nova-pop{0%{transform:scale(.6);filter:brightness(3)}100%{transform:none;filter:none}}
+.sparks{position:absolute;left:50%;top:50%;pointer-events:none}
+.sparks i{position:absolute;width:5px;height:5px;margin:-2.5px;border-radius:50%;background:var(--c);box-shadow:0 0 10px 2px var(--c);opacity:0;
+  animation:spark var(--t) cubic-bezier(.1,.7,.3,1) forwards}
+@keyframes spark{0%{opacity:1;transform:rotate(var(--a)) translateX(0) scale(1.4)}100%{opacity:0;transform:rotate(var(--a)) translateX(var(--d)) scale(.3)}}
+.optics.nova::after{content:"";position:absolute;left:50%;bottom:40px;width:40px;height:40px;margin-left:-20px;border-radius:50%;border:2px solid #fff;
+  box-shadow:0 0 30px #fff, 0 0 60px var(--b4);animation:shock 1s ease-out forwards;pointer-events:none;z-index:3}
+@keyframes shock{0%{transform:scale(.3);opacity:1}100%{transform:scale(9);opacity:0}}
+.optics.miss .focus{animation:shake .45s}
+@keyframes shake{20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(2px)}}
+.optics.miss svg.light .additive{animation:flicker .5s}
+@keyframes flicker{30%{opacity:.35}60%{opacity:.8}}
+.optics .bent{animation:bend .35s ease-out}
+@keyframes bend{from{opacity:.2}}
+.optics.snap svg.light .additive{animation:snapflash .5s}
+@keyframes snapflash{0%{opacity:.5}100%{opacity:1}}
+.ghostpt text{fill:#D6E0FF;font:italic 600 15px var(--display);paint-order:stroke;stroke:#02030A;stroke-width:4px;opacity:.9}
+.ghostpt{animation:bend .4s ease-out}
+
+/* card flip reveal */
+.card.lit.fresh{animation:flipin .7s cubic-bezier(.2,.9,.3,1.2), cardon 1.1s ease-out}
+@keyframes flipin{0%{transform:perspective(700px) rotateY(-95deg);opacity:.2}100%{transform:none;opacity:1}}
+.card .cost{font:500 11px/1.2 var(--mono);color:var(--gold)}
+
+/* panel */
+.panel{margin-top:22px;display:flex;flex-direction:column;gap:12px}
+.energy{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;font:500 12px/1 var(--mono);color:var(--muted)}
+.energy .el{letter-spacing:.12em;text-transform:uppercase}
+.ebar{height:8px;border-radius:4px;background:rgba(150,160,255,.12);overflow:hidden}
+.ebar i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--b4),var(--b3),var(--b2),#fff);box-shadow:0 0 12px rgba(255,248,232,.7);transition:width .6s cubic-bezier(.3,.9,.3,1)}
+.energy .ev b{color:var(--ink);font-weight:600}
+.guessrow{flex-wrap:nowrap}
+.guessrow .btn{flex:none;padding-inline:18px}
+.gwrap{position:relative;flex:1 1 auto;min-width:0;display:flex}
+.gwrap input{min-width:0;width:100%}
+.gwrap input{flex:1}
+.sugg{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:15;list-style:none;margin:0;padding:4px;background:rgba(10,12,32,.96);border:1px solid rgba(150,160,255,.35);border-radius:4px;box-shadow:0 12px 30px -10px #000,0 0 20px -8px var(--b4)}
+.sugg li{padding:9px 12px;border-radius:3px;cursor:pointer;font-size:15px}
+.sugg li:hover,.sugg li[aria-selected="true"]{background:rgba(140,123,255,.22)}
+.status{gap:14px}
+.hintbtn{display:flex;gap:10px;align-items:center;background:rgba(255,201,60,.06);border:1px solid rgba(255,201,60,.4);color:var(--ink);border-radius:4px;padding:7px 12px;font-size:13.5px;font-weight:600}
+.hintbtn:hover{box-shadow:0 0 16px -4px var(--b2)}
+.hintbtn .cost{font:500 12px/1 var(--mono);color:var(--bad)}
+.linkbtn{background:none;border:0;color:var(--muted);text-decoration:underline;text-underline-offset:3px;font-size:13.5px;padding:4px}
+.linkbtn:hover{color:var(--ink)}
+.log li.hinted{background:rgba(255,201,60,.08);color:#F4E3B0;text-decoration:none;font-family:var(--body);font-size:14px;line-height:1.35}
+.feedback.center{text-align:center;margin-top:18px}
+.btn.glow{background:#fff;color:#0A0820;box-shadow:0 0 22px -2px rgba(214,224,255,.9),0 0 50px -10px var(--b4)}
+
+/* connections + herring */
+.conn .ex{animation:rise .5s ease-out both;animation-delay:calc(var(--k) * .18s)}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+.hopts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.hopt{border:1px solid color-mix(in srgb,var(--beam) 55%,transparent);background:rgba(10,12,30,.55);color:var(--ink);border-radius:4px;padding:12px 10px;font:italic 600 17px/1.15 var(--formal);text-align:left;border-top:3px solid var(--beam)}
+.hopt:hover:not([disabled]){box-shadow:0 0 18px -4px var(--beam)}
+.hopt.right{background:var(--good-soft);border-color:var(--good);box-shadow:0 0 20px -4px var(--good)}
+.hopt.wrong{background:var(--bad-soft);border-color:var(--bad);opacity:.8}
+.hopt[disabled]{cursor:default}
+@media (max-width:560px){ .hopts{grid-template-columns:1fr 1fr} }
+
+/* daily result */
+.prisms{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.prism{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 6px;border:1px solid var(--line);border-radius:4px;background:rgba(10,12,30,.5)}
+.prism svg{width:100%;max-width:150px;overflow:visible}
+.prism .tri{fill:color-mix(in srgb,var(--pc) 14%,transparent);stroke:var(--pc);stroke-width:2.4;stroke-linejoin:round}
+.prism .in{stroke:#fff;stroke-width:2.4}
+.prism .out line{stroke-width:2.2;opacity:.9}
+.prism.lit svg{filter:drop-shadow(0 0 8px var(--pc))}
+.prism.lit .out{animation:rise .8s ease-out both .3s}
+.prism.dim{opacity:.45} .prism.dim .in{stroke:var(--muted)}
+.prism .pl{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.prism .ps{font:600 22px/1 var(--display);color:var(--ink)}
+.daytotal{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 4px;border-bottom:1px solid var(--line)}
+.daytotal strong{font:600 clamp(34px,6vw,46px)/1 var(--display);text-shadow:0 0 22px rgba(255,248,232,.55)}
+.dist{display:flex;flex-direction:column;gap:6px}
+.drow{display:grid;grid-template-columns:18px 1fr 28px;gap:8px;align-items:center;font:500 12.5px/1 var(--mono);color:var(--muted)}
+.dbar{height:16px;display:block}
+.dbar i{display:block;height:100%;background:rgba(214,224,255,.35);border-radius:0 4px 4px 0}
+.drow.today .dbar i{background:var(--flare);box-shadow:0 0 12px rgba(255,248,232,.6)}
+.drow.today{color:var(--ink)}
+.dv{text-align:right;color:var(--ink)}
+.countdown-wrap{margin:0;text-align:center;color:var(--muted)}
+.countdown{font:600 20px/1 var(--mono);color:var(--ink);text-shadow:0 0 12px rgba(214,224,255,.6)}
+
+/* intro */
+body.modal{overflow:hidden}
+.intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:16px;background:rgba(2,3,10,.72);backdrop-filter:blur(6px)}
+.intro[hidden]{display:none}
+.introcard{width:min(420px,100%);display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;padding:26px 22px 18px;border:1px solid rgba(150,160,255,.3);border-radius:4px;background:rgba(10,12,32,.92);box-shadow:0 0 60px -20px var(--b4)}
+.introcard h2{margin:0;font:600 30px/1.1 var(--display)}
+.introcard p{margin:0;color:#C5CAE8}
+.iart svg{width:220px;height:120px;overflow:visible}
+.iart .ib line{stroke-width:3;filter:drop-shadow(0 0 5px currentColor)}
+.iart .ib line{animation:rise .6s ease-out both}
+.iart .il{fill:rgba(214,224,255,.06);stroke:url(#none);stroke:rgba(214,224,255,.5)}
+.iart .ifo{fill:#fff;filter:drop-shadow(0 0 10px #fff) drop-shadow(0 0 20px var(--b4))}
+.iart .ie{fill:rgba(150,160,255,.15)} .iart .ief{fill:var(--b3);filter:drop-shadow(0 0 8px var(--b3))}
+.iart .it{fill:#D6E0FF;font:500 13px var(--mono)}
+.idots{display:flex;gap:6px}.idots i{width:7px;height:7px;border-radius:50%;background:rgba(214,224,255,.25)}.idots i.on{background:#fff;box-shadow:0 0 8px #fff}
+.ibtns{display:flex;justify-content:space-between;align-items:center;width:100%}
+.linkbtn.full{font-size:12.5px}
+@media (prefers-reduced-motion: reduce){ .sparks,.optics.nova::after{display:none} .card.lit.fresh,.conn .ex,.optics.miss .focus,.optics.solved .focus,.bi.combo{animation:none} }
 </style>
 
 <div class="cosmos" aria-hidden="true"><canvas id="stars"></canvas></div>
+<div id="intro" class="intro" hidden></div>
 <div class="wrap">
   <header class="top">
     <div class="brand">
       <span class="eyebrow">Four beams · one focal point</span>
-      <h1>Cultural <em>Convergence</em></h1>
+      <h1>Convergent <em>Zeitgeist</em></h1>
     </div>
-    <div class="meta" id="meta"></div>
   </header>
 
-  <nav class="modes" id="modes" aria-label="Game mode"></nav>
+  <nav class="bar" id="bar" aria-label="Game controls"></nav>
   <main id="game"></main>
 
   <details id="howto">
-    <summary>How to play</summary>
+    <summary>Full rules</summary>
     <div class="inner">
       <p>Find the single cultural concept that connects all four clues. It could be a city, country, cultural movement, historical era, tradition, religion, artistic style, cuisine, trade network, or another recognisable cultural concept.</p>
-      <p><strong>Clues arrive in order.</strong> Each puzzle opens with clues 1 and 2 already lit, so you always have two points to triangulate from. Clue 1 is broad and should suggest several answers. Clue 2 adds a new domain and may build a convincing theory that turns out wrong. Clue 3 narrows the field. Clue 4 supplies the final piece. You can guess at any point, and solving before clue 4 earns a bonus.</p>
-      <p><strong>Connections</strong> are either direct (Kaiseki → Kyoto) or run through one intermediate concept (a card game → Nintendo → Kyoto). You don't need the path to guess.</p>
-      <p><strong>Misdirection is fair play.</strong> Some clues honestly point to more than one answer: a pastry that fits both Paris and Vienna. Red herrings are always real connections, never false facts. The answer is the concept that best explains all four together.</p>
-      <p><strong>You get 5 guesses</strong> (4 in a Hard round) and up to <strong>3 hints</strong>: the answer's type, how the clues connect, and a geographic or historical constraint.</p>
-      <p><strong>The daily game is three rounds</strong> that ramp up: Easy, then Medium, then Hard. Each round unlocks when you finish the one before. Round points are multiplied by the round's weight, and solving all three adds a sweep bonus. Rounds use puzzles validated at that difficulty; when the library has no validated puzzle for a slot that day, the round uses the hardest puzzle available one level down, and the Hard round always plays with 4 guesses.</p>
-      <p><strong>Endless mode</strong> serves puzzles back to back with 3 lives. The first three are Easy, the next four Medium, then Hard. A missed puzzle costs a life. Endless never serves a puzzle from the next week of daily games.</p>
-      <p><strong>Explain the convergence.</strong> After solving, match each clue to its relationship with the answer for a bonus.</p>
+      <p><strong>Clues arrive in order.</strong> Clues 1 and 2 start lit. Clue 1 is broad; clue 2 adds a new angle and may lead you astray; clue 3 narrows the field; clue 4 settles it. Guess any time. The <strong>light meter</strong> under the board shows what you'd score if your next guess is right.</p>
+      <p><strong>Connections</strong> are either direct (Kaiseki → Kyoto) or run through one intermediate concept (a card game → Nintendo → Kyoto). Some clues honestly point to more than one answer. Red herrings are always real connections, never false facts.</p>
+      <p><strong>Wrong guesses teach you something.</strong> If your guess fits some of the clues shown, those beams bend toward it for a moment. Type two letters for suggestions.</p>
+      <p><strong>You get 5 guesses</strong> (4 in a Hard round) and <strong>one hint button</strong> you can press up to three times. The first hint names the answer's type and shows its letter spaces at the focal point; the second explains how the clues connect and fills in first letters; the third gives a place or period and fills in last letters.</p>
+      <p><strong>Spot the red herring.</strong> After you solve, all four connections are shown. Pick the clue that could most easily have led somewhere else for a bonus.</p>
+      <p><strong>The daily game is three rounds:</strong> Easy, Medium, then Hard, worth ×1, ×1.5 and ×2. Each round unlocks when you finish the one before, and solving all three adds a sweep bonus. When the library has no puzzle validated at a round's difficulty that day, the round uses the hardest one available a level down.</p>
+      <p><strong>Endless</strong> serves puzzles back to back with 3 lives: three Easy, four Medium, then Hard. Each solve in a row adds 10% to your points, up to double. A miss costs a life and resets the combo. Endless never serves a puzzle from the coming week of daily games.</p>
       <div class="scoretable">
         <span>Starting points</span><span>1,000</span>
         <span>Solve before clue 4</span><span>+200</span>
         <span>Solve on your first guess</span><span>+150</span>
-        <span>Explain all four connections</span><span>+100</span>
+        <span>Spot the red herring</span><span>+100</span>
         <span>No hints used</span><span>+50</span>
         <span>Each incorrect guess</span><span>−75</span>
-        <span>Hint 1 · answer type</span><span>−100</span>
-        <span>Hint 2 · connection structure</span><span>−150</span>
-        <span>Hint 3 · context</span><span>−225</span>
+        <span>Hint 1 · type &amp; length</span><span>−100</span>
+        <span>Hint 2 · structure &amp; first letters</span><span>−150</span>
+        <span>Hint 3 · context &amp; last letters</span><span>−225</span>
         <span>Round weight · Easy / Medium / Hard</span><span>×1 / ×1.5 / ×2</span>
         <span>Daily sweep · all three solved</span><span>+250</span>
+        <span>Endless combo · per solve in a row</span><span>+10%, up to ×2</span>
       </div>
       <p class="note"><span id="graphstats"></span>Every puzzle passes an editorial check before it's published: each clue must support several plausible answers alone, clue pairs must stay ambiguous, a believable rival must survive until late, and the final answer must beat every rival clearly. Puzzles are labelled with the hardest difficulty they actually pass.</p>
     </div>
@@ -300,7 +441,7 @@ body{background:transparent;position:relative;min-height:100vh}
 
 <script>
 // ---------------------------------------------------------------------------
-// CULTURAL CONVERGENCE — curated puzzle graph
+// CONVERGENT ZEITGEIST — curated puzzle graph
 // Each clue lists: its path to the target, and `c`, the other puzzle-ready
 // targets it genuinely supports: { "Target": [strength 4|5, pathLength 1|2] }.
 // `parents` are containers or near-synonyms of the target (e.g. its country).
@@ -962,6 +1103,7 @@ if(typeof module!=="undefined") module.exports={validate,buildSchedule,buildDail
 (function(){
 "use strict";
 const HINT_COST = [100,150,225];
+const HINT_NAME = ["Answer type & length","Structure & first letters","Context & last letters"];
 const START_CLUES = 2; // clues 1 and 2 are visible when a puzzle opens
 const NUMW = ["No","One","Two","Three","Four"];
 const RULES = [
@@ -969,9 +1111,11 @@ const RULES = [
   {name:"Medium", mult:1.5, guesses:5},
   {name:"Hard",   mult:2,   guesses:4}
 ];
+const MAX_BASE = 1400;        // 1,000 + 200 early + 150 first guess + 50 no hints
 const SWEEP = 250;
 const LIVES = 3;
 const ENDLESS_TIERS = [["easy"],["medium","easy"],["expert","hard","medium"]];
+const comboMult = c => 1 + 0.1*Math.min(c,10);   // endless: +10% per solve in a row, up to ×2
 
 const ALL = PUZZLES.concat(typeof GENERATED!=="undefined"?GENERATED:[]);
 const byId = Object.fromEntries(ALL.map(p=>[p.id,p]));
@@ -979,21 +1123,30 @@ const reports = {}; ALL.forEach(p=>reports[p.id]=validate(p));
 const schedule = buildDaily(reports, ALL, PUZZLES.map(p=>p.id));
 const dayOfId = {}; schedule.forEach(s=>s.ids.forEach((id,k)=>dayOfId[id]={day:s.day,round:k}));
 
+// Suggestions draw on every topic in the graph, so they never single out an answer.
+const SUGG = (()=>{ const seen=new Map();
+  const add=s=>{ if(!s||/^['"(]/.test(s)) return; const n=norm(s); if(n.length<2||seen.has(n)) return; seen.set(n,s); };
+  (typeof CONCEPTS!=="undefined"?CONCEPTS:[]).forEach(add); ALL.forEach(p=>add(p.target));
+  return [...seen.entries()].map(([n,s])=>({n,s,w:n.split(" ")})); })();
+
 // ---------- dates ----------
 function localISO(d){ return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
 function dayIndex(iso){ const [y,m,d]=iso.split("-").map(Number); const [ey,em,ed]=EPOCH.split("-").map(Number); return Math.round((Date.UTC(y,m-1,d)-Date.UTC(ey,em-1,ed))/86400000); }
-function dateOf(day){ const [ey,em,ed]=EPOCH.split("-").map(Number); const t=new Date(Date.UTC(ey,em-1,ed)+day*86400000); return t.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric",timeZone:"UTC"}); }
+function dateOf(day,opt){ const [ey,em,ed]=EPOCH.split("-").map(Number); const t=new Date(Date.UTC(ey,em-1,ed)+day*86400000); return t.toLocaleDateString(undefined,Object.assign({month:"short",day:"numeric",year:"numeric",timeZone:"UTC"},opt||{})); }
 const todayIdx = dayIndex(localISO(new Date()));
 const available = schedule.filter(s=>s.day<=todayIdx);
 const todayEntry = schedule.find(s=>s.day===todayIdx) || null;
+const nextEntry = schedule.find(s=>s.day>todayIdx) || null;
 
 // ---------- storage ----------
-const KEY="cultural-convergence.v2";
+const KEY="convergent-zeitgeist.v2";
+const OLD_KEY="cultural-convergence.v2"; // carries progress over from before the rename
 let store={};
-try{ store=JSON.parse(localStorage.getItem(KEY)||"{}")||{}; }catch(e){ store={}; }
+try{ store=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(OLD_KEY)||"{}")||{}; }catch(e){ store={}; }
 store.daily=store.daily||{}; store.endless=store.endless||{run:null,best:0,bestSolved:0,runs:0};
+store.settings=store.settings||{sound:false};
 function save(){ try{ localStorage.setItem(KEY,JSON.stringify(store)); }catch(e){} }
-function newSt(){ return {revealed:START_CLUES, guesses:[], wrong:0, hints:0, status:"playing", revealedAtSolve:null, pick:{}, explained:false, correct:0}; }
+function newSt(){ return {revealed:START_CLUES, guesses:[], wrong:0, hints:0, status:"playing", revealedAtSolve:null, herring:null, explained:false, correct:0}; }
 function dayState(day){ if(!store.daily[day]) store.daily[day]={rounds:[newSt(),newSt(),newSt()]}; return store.daily[day]; }
 const finished = st => !!st && (st.status==="failed" || (st.status==="solved" && st.explained));
 
@@ -1004,6 +1157,11 @@ let currentRound = 0;
 let feedback = {text:"", kind:""};
 let freshClue = -1;
 let pendingGiveUp = false;
+let ghost = null;        // transient: beams bending toward a wrong guess
+let nova = false;        // transient: solve burst
+let missFlash = false;   // transient: guess that fits no clue
+const counted = new Set(); // score count-ups already played this session
+let introStep = store.seenIntro ? -1 : 0;
 function firstOpenRound(day){ const ds=store.daily[day]; if(!ds) return 0; for(let k=0;k<3;k++) if(!finished(ds.rounds[k])) return k; return 2; }
 if(currentDay!==null) currentRound=firstOpenRound(currentDay);
 
@@ -1016,38 +1174,63 @@ function isCorrect(p,guess){
   return [p.target,...p.accept].some(a=>{ const n=norm(a), ns=n.replace(/ /g,""); if(g===n||gs===ns) return true; const tol = ns.length>=10?2:(ns.length>=5?1:0); return tol>0 && lev(gs,ns)<=tol; });
 }
 function warmFor(p,guess){ const g=norm(guess); for(const [k,v] of Object.entries(p.warm||{})) if(norm(k)===g||norm(k).replace(/ /g,"")===g.replace(/ /g,"")) return v; return null; }
-function hash(s){ let h=2166136261; for(const c of s){ h^=c.charCodeAt(0); h=Math.imul(h,16777619); } return h>>>0; }
-function seeded(seed){ let x=seed||1; return ()=>{ x^=x<<13; x^=x>>>17; x^=x<<5; return ((x>>>0)%10000)/10000; }; }
-function optionsFor(p,i){
-  const cl=p.clues[i]; const rnd=seeded(hash(p.id+":"+i));
-  const pool=Object.keys(FAM).filter(k=>!cl.fam.includes(k));
-  pool.sort(()=>rnd()-.5);
-  const opts=[cl.fam[0],...pool.slice(0,3)];
-  opts.sort(()=>rnd()-.5);
-  return opts;
-}
 function hint2(p){
   const ind=p.clues.filter(c=>(c.path.length-1)/2===2).length, dir=4-ind;
   const a = dir===0?"No clues connect directly.":`${NUMW[dir]} clue${dir>1?"s":""} connect${dir>1?"":"s"} directly.`;
   const b = ind===0?"None connect through another concept.":`${NUMW[ind]} connect${ind>1?"":"s"} through another concept.`;
   return a+" "+b;
 }
-function hintText(p,k){ return [p.cls, hint2(p), p.ctx][k]; }
+function hintText(p,k){ return [p.cls+" Its letters now show at the focal point.", hint2(p)+" First letters filled in.", p.ctx+" Last letters filled in."][k]; }
 function diffOf(p){ return reports[p.id].difficulty; }
 
+// The red herring: the clue whose strongest rival answer pulls hardest away from the target.
+function herringOf(p){
+  let best=null;
+  p.clues.forEach((c,i)=>{
+    const ents=Object.entries(c.c||{}).filter(([k])=>norm(k)!==norm(p.target)&&!(p.parents||[]).some(x=>norm(x)===norm(k)));
+    if(!ents.length) return;
+    const top=ents.map(([k,v])=>({k,s:v[0]*(v[1]===1?1:0.7)})).sort((a,b)=>b.s-a.s)[0];
+    const sc=top.s*10+ents.length;
+    if(!best||sc>best.sc) best={i,rival:top.k,sc};
+  });
+  return best;
+}
+
+// Letter slots at the focal point: hint 1 shows the shape, hint 2 first letters, hint 3 last letters.
+function slotsHTML(target,level){
+  const words=target.split(" ");
+  return words.map(w=>{
+    const chars=[...w]; const letters=chars.map((ch,i)=>/\p{L}|\p{N}/u.test(ch)?i:-1).filter(i=>i>=0);
+    const first=letters[0], last=letters[letters.length-1];
+    return `<span class="word">${chars.map((ch,i)=>{
+      if(!/\p{L}|\p{N}/u.test(ch)) return `<span class="slot sym">${esc(ch)}</span>`;
+      const show=(level>=2&&i===first)||(level>=3&&i===last);
+      return `<span class="slot${show?" on":""}">${show?esc(ch.toUpperCase()):""}</span>`;
+    }).join("")}</span>`;
+  }).join("");
+}
+
+function potential(st,rules,combo){
+  let b=1000+(st.revealed<4?200:0)+(st.guesses.length===0?150:0)+(st.hints===0?50:0)-75*st.wrong;
+  for(let k=0;k<st.hints;k++) b-=HINT_COST[k];
+  b=Math.max(0,b);
+  return {base:b, total:Math.round(Math.round(b*rules.mult)*comboMult(combo||0))};
+}
 function scoreOf(p,st,rules){
   if(st.status!=="solved") return {rows:[["Puzzle not solved",0]], base:0, total:0};
   const rows=[];
   rows.push(["Starting points",1000]);
   if(st.revealedAtSolve<4) rows.push(["Solved before clue 4",200]);
   if(st.guesses.length===1) rows.push(["Solved on first guess",150]);
-  if(st.explained && st.correct===4) rows.push(["Explained all four connections",100]);
+  if(st.explained && st.correct===1 && st.herring!==null && st.herring!==undefined) rows.push(["Spotted the red herring",100]);
+  else if(st.explained && st.correct===4) rows.push(["Explained all four connections",100]);   // saves from before the change
   if(st.hints===0) rows.push(["No hints used",50]);
   if(st.wrong>0) rows.push([`${st.wrong} incorrect guess${st.wrong>1?"es":""}`,-75*st.wrong]);
   for(let k=0;k<st.hints;k++) rows.push([`Hint ${k+1}`,-HINT_COST[k]]);
   const base=Math.max(0,rows.reduce((a,r)=>a+r[1],0));
-  const total=Math.round(base*rules.mult);
-  if(rules.mult!==1) rows.push([`${rules.name} round ×${rules.mult}`, total-base]);
+  let total=Math.round(base*rules.mult);
+  if(rules.mult!==1) rows.push([`${rules.name} ×${rules.mult}`, total-base]);
+  if(st.comboAt>0){ const t2=Math.round(total*comboMult(st.comboAt)); rows.push([`Combo ×${comboMult(st.comboAt).toFixed(1)}`, t2-total]); total=t2; }
   return {rows,base,total};
 }
 function squares(st){
@@ -1055,7 +1238,7 @@ function squares(st){
     if(st.status==="failed") return i<st.revealed?"🟥":"⬛";
     if(st.status!=="solved") return "⬜";
     return i<st.revealedAtSolve?"🟨":"🟩";
-  }).join(" ");
+  }).join("");
 }
 function dayTotals(day){
   const e=schedule.find(s=>s.day===day); const ds=store.daily[day];
@@ -1079,19 +1262,46 @@ function dailyStats(){
   }
   return {best, played, streak};
 }
+function guessDistribution(){
+  const b={1:0,2:0,3:0,4:0,5:0,X:0};
+  Object.values(store.daily).forEach(ds=>ds.rounds.forEach(st=>{ if(!finished(st)) return; if(st.status==="solved") b[Math.min(5,st.guesses.length)]++; else b.X++; }));
+  return b;
+}
 function dailyShare(day){
   const e=schedule.find(s=>s.day===day); const ds=dayState(day); const t=dayTotals(day);
   const guesses=ds.rounds.reduce((a,st)=>a+(st.status==="solved"?st.guesses.length:0),0);
   const hints=ds.rounds.reduce((a,st)=>a+st.hints,0);
-  const links=ds.rounds.reduce((a,st)=>a+(st.status==="solved"&&st.explained?st.correct:0),0);
-  const lines=[`Cultural Convergence #${day+1}`];
-  e.ids.forEach((id,k)=>lines.push(`${RULES[k].name.padEnd(6," ")}  ${squares(ds.rounds[k])}  ${fmt(t.rounds[k])}`));
-  lines.push(`🎯 ${t.solved}/3 solved · ${guesses} guess${guesses===1?"":"es"}`);
-  lines.push(`💡 ${hints} hint${hints===1?"":"s"} · 🔗 ${links}/12 connections`);
+  const herrings=ds.rounds.reduce((a,st)=>a+(st.status==="solved"&&st.explained&&st.correct===1?1:0),0);
+  const prism=["🟪","🟨","🟩"];
+  const lines=[`Convergent Zeitgeist #${day+1}`];
+  e.ids.forEach((id,k)=>lines.push(`${prism[k]} ${squares(ds.rounds[k])}  ${fmt(t.rounds[k])}`));
+  lines.push(`🎯 ${t.solved}/3 · ${guesses} guess${guesses===1?"":"es"} · 💡 ${hints} · 🎭 ${herrings}/3`);
   if(t.sweep) lines.push(`✨ Sweep +${SWEEP}`);
   lines.push(`🏆 ${fmt(t.total)}`);
   return lines.join("\n");
 }
+
+// ---------- sound & vibration (off by default) ----------
+let actx=null;
+function audio(){ if(!store.settings.sound) return null; try{ if(!actx) actx=new (window.AudioContext||window.webkitAudioContext)(); if(actx.state==="suspended") actx.resume(); }catch(e){ return null; } return actx; }
+function tone(freq,dur,{type="sine",gain=0.12,delay=0,glide=0}={}){
+  const a=audio(); if(!a) return;
+  const t=a.currentTime+delay, o=a.createOscillator(), g=a.createGain();
+  o.type=type; o.frequency.setValueAtTime(freq,t); if(glide) o.frequency.exponentialRampToValueAtTime(freq*glide,t+dur);
+  g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(gain,t+0.02); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+  o.connect(g).connect(a.destination); o.start(t); o.stop(t+dur+0.05);
+}
+function buzz(p){ if(store.settings.sound && navigator.vibrate) try{ navigator.vibrate(p); }catch(e){} }
+const NOTES=[523.25,659.25,783.99,1046.5];
+const sfx={
+  reveal(i){ tone(NOTES[i%4],0.9,{gain:0.09}); tone(NOTES[i%4]*2,0.6,{gain:0.03,delay:0.02}); buzz(12); },
+  wrong(){ tone(196,0.35,{type:"triangle",gain:0.1,glide:0.7}); buzz(40); },
+  near(){ tone(392,0.25,{type:"triangle",gain:0.07}); tone(349.2,0.3,{type:"triangle",gain:0.06,delay:0.12}); buzz(25); },
+  hint(){ tone(1318.5,0.18,{gain:0.05}); },
+  solve(){ [523.25,659.25,783.99,1046.5,1318.5].forEach((f,k)=>tone(f,1.4-k*0.12,{gain:0.08,delay:k*0.07})); buzz([20,40,70]); },
+  herring(ok){ ok ? [783.99,1174.7].forEach((f,k)=>tone(f,0.6,{gain:0.07,delay:k*0.09})) : tone(246.9,0.4,{type:"triangle",gain:0.07}); },
+  tap(){ tone(880,0.08,{gain:0.03}); }
+};
 
 // ---------- endless ----------
 function endlessStage(run){ return run.solved<3?0:(run.solved<7?1:2); }
@@ -1110,13 +1320,13 @@ function pickEndless(run){
     if(ti>0){ c.sort((a,b)=>hardness(reports[b.id])-hardness(reports[a.id])); c=c.slice(0,Math.max(6,Math.ceil(c.length*0.3))); }
     return c[Math.floor(Math.random()*c.length)].id;
   }
-  // stage tiers exhausted: anything left, hardest first
   const rest=ALL.filter(okP).sort((a,b)=>hardness(reports[b.id])-hardness(reports[a.id]));
   return rest.length?rest[0].id:null;
 }
+function freshEndlessSt(run){ const st=newSt(); st.comboAt=run.combo||0; return st; }
 function startRun(){
-  const run={used:[], cur:null, st:null, stage:0, lives:LIVES, score:0, solved:0, log:[], over:false, counted:false};
-  run.cur=pickEndless(run); if(run.cur){ run.used.push(run.cur); run.st=newSt(); }
+  const run={used:[], cur:null, st:null, stage:0, lives:LIVES, score:0, solved:0, combo:0, bestCombo:0, log:[], over:false, counted:false};
+  run.cur=pickEndless(run); if(run.cur){ run.used.push(run.cur); run.st=freshEndlessSt(run); }
   else run.over=true;
   store.endless.run=run; store.endless.runs=(store.endless.runs||0)+1; save();
 }
@@ -1125,7 +1335,7 @@ function nextEndless(){
   run.stage=endlessStage(run);
   const id=pickEndless(run);
   if(!id){ endRun(); return; }
-  run.cur=id; run.used.push(id); run.st=newSt(); run.counted=false; save();
+  run.cur=id; run.used.push(id); run.st=freshEndlessSt(run); run.counted=false; save();
 }
 function endRun(){
   const run=store.endless.run; run.over=true;
@@ -1138,14 +1348,15 @@ function settleEndless(){
   const p=byId[run.cur]; const rules=RULES[run.stage];
   const pts=scoreOf(p,run.st,rules).total;
   run.counted=true; run.score+=pts;
-  if(run.st.status==="solved") run.solved++; else run.lives--;
+  if(run.st.status==="solved"){ run.solved++; run.combo=(run.combo||0)+1; run.bestCombo=Math.max(run.bestCombo||0,run.combo); }
+  else { run.lives--; run.combo=0; }
   run.log.push({id:run.cur, ok:run.st.status==="solved", pts});
   if(run.lives<=0) endRun(); else save();
 }
 function endlessShare(run){
-  return [`Cultural Convergence · Endless`,
+  return [`Convergent Zeitgeist · Endless`,
     run.log.map(l=>l.ok?"🟩":"🟥").join(""),
-    `🔥 ${run.solved} solved · ${run.log.length} played`,
+    `🔥 ${run.solved} solved · best combo ${run.bestCombo||0}`,
     `🏆 ${fmt(run.score)}`].join("\n");
 }
 
@@ -1153,74 +1364,99 @@ function endlessShare(run){
 function ctx(){
   if(mode==="endless"){
     const run=store.endless.run; if(!run||!run.cur) return null;
-    return {kind:"endless", p:byId[run.cur], st:run.st, rules:RULES[run.stage]};
+    return {kind:"endless", p:byId[run.cur], st:run.st, rules:RULES[run.stage], combo:run.st.comboAt||0};
   }
   if(currentDay===null) return null;
   const e=schedule.find(s=>s.day===currentDay); if(!e) return null;
   const ds=dayState(currentDay);
-  return {kind:"daily", p:byId[e.ids[currentRound]], st:ds.rounds[currentRound], rules:RULES[currentRound]};
+  return {kind:"daily", p:byId[e.ids[currentRound]], st:ds.rounds[currentRound], rules:RULES[currentRound], combo:0};
 }
 
 // ---------- render ----------
 function render(){
-  renderModes();
+  renderBar();
   if(mode==="endless") renderEndless(); else renderDaily();
   renderArchive();
+  renderIntro();
 }
-function renderModes(){
-  const ds=dailyStats(); const eb=store.endless.best||0;
-  const stat = mode==="daily" ? `Streak ${ds.streak} · Best ${fmt(ds.best)}` : `Best run ${fmt(eb)}`;
-  document.getElementById("modes").innerHTML =
-    `<button role="tab" data-act="mode" data-m="daily" aria-selected="${mode==="daily"}">Daily</button>
-     <button role="tab" data-act="mode" data-m="endless" aria-selected="${mode==="endless"}">Endless</button>
-     <span class="sp"></span><span class="stat">${stat}</span>`;
+
+const ICON_SOUND_ON=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+const ICON_SOUND_OFF=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+
+function renderBar(){
+  let mid="", info="";
+  if(mode==="daily" && currentDay!==null && schedule.find(s=>s.day===currentDay)){
+    const e=schedule.find(s=>s.day===currentDay); const ds=dayState(currentDay);
+    mid = e.ids.map((id,k)=>{
+      const st=ds.rounds[k]; const open=k===0||finished(ds.rounds[k-1]);
+      const mark = finished(st) ? (st.status==="solved"?"✓":"✕") : (open?"":"·");
+      return `<button class="pill r${k+1} ${finished(st)?st.status:""}" data-act="round" data-k="${k}" aria-current="${k===currentRound}" ${open?"":"disabled"} title="Round ${k+1} · ${RULES[k].name} · ×${RULES[k].mult}"><span class="pn">${k+1}</span><span class="pt">${RULES[k].name}</span>${mark?`<span class="pm">${mark}</span>`:""}</button>`;
+    }).join("");
+    const s=dailyStats();
+    info = `<span class="bi">#${currentDay+1} · ${esc(dateOf(currentDay,{year:undefined}))}</span><span class="bi" title="Days in a row with all three rounds finished">🔥 ${s.streak}</span>`;
+  } else if(mode==="endless"){
+    const run=store.endless.run;
+    if(run && !run.over){
+      const hearts="♥".repeat(Math.max(0,run.lives))+"♡".repeat(LIVES-Math.max(0,run.lives));
+      mid = `<span class="bi stage s${run.stage+1}">${RULES[run.stage].name}</span><span class="bi lives" aria-label="${run.lives} lives left">${hearts}</span>${run.combo>0?`<span class="bi combo">Combo ×${comboMult(run.combo).toFixed(1)}</span>`:""}`;
+      info = `<span class="bi">${fmt(run.score)} pts</span>`;
+    } else info = `<span class="bi">Best ${fmt(store.endless.best||0)}</span>`;
+  }
+  document.getElementById("bar").innerHTML =
+    `<div class="tabs" role="tablist"><button role="tab" data-act="mode" data-m="daily" aria-selected="${mode==="daily"}">Daily</button><button role="tab" data-act="mode" data-m="endless" aria-selected="${mode==="endless"}">Endless</button></div>
+     <div class="mid">${mid}</div>
+     <div class="info">${info}
+       <button class="ib" data-act="sound" aria-pressed="${!!store.settings.sound}" title="Sound and vibration">${store.settings.sound?ICON_SOUND_ON:ICON_SOUND_OFF}</button>
+       <button class="ib" data-act="intro" title="How to play" aria-label="How to play">?</button></div>`;
 }
 
 function renderDaily(){
   const game=document.getElementById("game");
   document.getElementById("archivebox").hidden=false;
   if(currentDay===null){
-    document.getElementById("meta").innerHTML="";
     game.innerHTML=`<section class="block"><h2>The first daily game arrives on ${esc(dateOf(schedule.length?schedule[0].day:0))}.</h2><p class="lede">Endless mode is open now.</p><button class="btn" data-act="mode" data-m="endless">Play Endless</button></section>`;
     return;
   }
   const entry=schedule.find(s=>s.day===currentDay);
   const ds=dayState(currentDay); const num=entry.day+1;
   const libraryDone = todayIdx>schedule[schedule.length-1].day;
-  document.getElementById("meta").innerHTML =
-    `<span class="chip">#${num}</span><span class="chip">${esc(dateOf(entry.day))}</span>`;
-
   let html="";
   if(!todayEntry && currentDay===available[available.length-1].day)
-    html+=`<p class="note" style="margin:0 0 14px">${libraryDone?"You've reached the end of the current daily library.":"There's no new daily game today. Cooldown rules keep answers and clues from repeating too soon."} This is the most recent one; Endless mode is always open.</p>`;
-
-  html += `<div class="rounds" role="tablist" aria-label="Rounds">${entry.ids.map((id,k)=>{
-    const st=ds.rounds[k]; const open = k===0 || finished(ds.rounds[k-1]);
-    const pts = finished(st) ? fmt(scoreOf(byId[id],st,RULES[k]).total)+" pts" : (st.guesses.length||st.hints||st.revealed>START_CLUES ? "In progress" : (open?"Ready":"Locked"));
-    const cls = finished(st)?st.status:"";
-    return `<button class="round r${k+1} ${cls}" role="tab" data-act="round" data-k="${k}" aria-current="${k===currentRound}" ${open?"":"disabled"}><span class="rn">Round ${k+1} · ×${RULES[k].mult}</span><span class="rt">${RULES[k].name}</span><span class="rs">${pts}</span></button>`;
-  }).join("")}</div>`;
+    html+=`<p class="note" style="margin:0 0 14px">${libraryDone?"You've reached the end of the current daily library.":"There's no new daily game today."} This is the most recent one; Endless is always open.</p>`;
 
   const c=ctx();
   html += playHTML(c);
-  const st=c.st;
-  if(finished(st)){
-    html += roundResultHTML(c, currentRound<2 ? `<button class="btn" data-act="round" data-k="${currentRound+1}">Next: Round ${currentRound+2} · ${RULES[currentRound+1].name}</button>` : "");
-  }
-  if(ds.rounds.every(finished)){
-    const t=dayTotals(currentDay); const s=dailyStats();
-    html += `<section class="block" style="margin-top:26px"><span class="eyebrow">Daily result · #${num}</span><div class="result">
-      <ul class="tally">${entry.ids.map((id,k)=>`<li><span>Round ${k+1} · ${RULES[k].name}${ds.rounds[k].status==="solved"?"":" (missed)"}</span><span>${fmt(t.rounds[k])}</span></li>`).join("")}
-        ${t.sweep?`<li class="pos"><span>Sweep bonus · all three solved</span><span>+${fmt(t.sweep)}</span></li>`:""}
-        <li class="total"><span>Day total</span><span>${fmt(t.total)}</span></li>
-        <li><span>Best day</span><span>${fmt(s.best)}</span></li><li><span>Streak</span><span>${s.streak} day${s.streak===1?"":"s"}</span></li></ul>
-      <div class="share"><span class="eyebrow">Share without spoilers</span><pre id="sharetxt">${esc(dailyShare(currentDay))}</pre>
-        <div><button class="btn" data-act="copy">Copy result</button> <span class="note" id="copied" role="status"></span></div></div>
-    </div>
-    <div class="nextbar"><button class="btn ghost" data-act="mode" data-m="endless">Keep playing in Endless</button></div></section>`;
-  }
+  if(finished(c.st)) html += roundResultHTML(c, currentRound<2 ? `<button class="btn glow" data-act="round" data-k="${currentRound+1}">Next: Round ${currentRound+2} · ${RULES[currentRound+1].name} →</button>` : "");
+  if(ds.rounds.every(finished)) html += dayResultHTML(entry, ds, num);
   game.innerHTML=html;
   afterRender();
+}
+
+function dayResultHTML(entry, ds, num){
+  const t=dayTotals(entry.day); const s=dailyStats();
+  const cols=["var(--b4)","var(--b2)","var(--b3)"];
+  const prisms=entry.ids.map((id,k)=>{
+    const st=ds.rounds[k]; const ok=st.status==="solved";
+    return `<div class="prism ${ok?"lit":"dim"}" style="--pc:${cols[k]}"><svg viewBox="0 0 120 92" aria-hidden="true">
+      <line class="in" x1="0" y1="56" x2="46" y2="52"/>
+      ${ok?`<g class="out">${["#FF3D7F","#FFC93C","#1FF5C8","#3CA8FF","#8C7BFF"].map((cc,j)=>`<line x1="74" y1="54" x2="120" y2="${38+j*8}" stroke="${cc}"/>`).join("")}</g>`:""}
+      <path class="tri" d="M60 8 L98 80 L22 80 Z"/></svg>
+      <span class="pl">${RULES[k].name}</span><span class="ps" data-count="${t.rounds[k]}" data-key="d${entry.day}r${k}">${fmt(t.rounds[k])}</span></div>`;
+  }).join("");
+  const dist=guessDistribution(); const maxv=Math.max(1,...Object.values(dist));
+  const todayB=new Set(ds.rounds.map(st=>st.status==="solved"?String(Math.min(5,st.guesses.length)):"X"));
+  const bars=Object.entries(dist).map(([k,v])=>`<div class="drow${todayB.has(k)?" today":""}" title="${k==="X"?"Missed":k+" guess"+(k==="1"?"":"es")}: ${v} round${v===1?"":"s"}"><span class="dk">${k==="X"?"✕":k}</span><span class="dbar"><i style="width:${Math.max(v?6:0,v/maxv*100)}%"></i></span><span class="dv">${v}</span></div>`).join("");
+  return `<section class="block dayres" style="margin-top:26px"><span class="eyebrow">Daily result · #${num}</span>
+    <div class="prisms">${prisms}</div>
+    <div class="daytotal"><span>${t.sweep?`Sweep bonus +${SWEEP} · `:""}Day total</span><strong data-count="${t.total}" data-key="d${entry.day}total">${fmt(t.total)}</strong></div>
+    <div class="result">
+      <div class="dist"><span class="eyebrow">Guesses per solved round</span>${bars}
+        <p class="note" style="margin:6px 0 0">Best day ${fmt(s.best)} · streak ${s.streak} day${s.streak===1?"":"s"}</p></div>
+      <div class="share"><span class="eyebrow">Share without spoilers</span><pre id="sharetxt">${esc(dailyShare(entry.day))}</pre>
+        <div><button class="btn" data-act="copy">Copy result</button> <span class="note" id="copied" role="status"></span></div></div>
+    </div>
+    ${entry.day===todayIdx?`<p class="countdown-wrap">${nextEntry?`Next daily in <span class="countdown" data-to="${nextEntry.day}">--:--:--</span>`:"That's the last daily in the current library."}</p>`:""}
+    <div class="nextbar"><button class="btn ghost" data-act="mode" data-m="endless">Keep playing in Endless</button></div></section>`;
 }
 
 function renderEndless(){
@@ -1228,32 +1464,27 @@ function renderEndless(){
   const run=store.endless.run;
   document.getElementById("archivebox").hidden=true;
   if(!run || (run.over && !run.log.length)){
-    document.getElementById("meta").innerHTML=`<span class="chip">Endless</span>`;
     game.innerHTML=`<section class="block"><span class="eyebrow">Endless</span><h2>How long can you keep the light focused?</h2>
-      <p class="lede">Puzzles come back to back. The first three are Easy, the next four Medium, then Hard from there on. You have ${LIVES} lives; a missed puzzle costs one. Points use the same scoring as the daily rounds, with the round weight for each stage.</p>
+      <p class="lede">Puzzles come back to back: three Easy, four Medium, then Hard from there on. You have ${LIVES} lives. Every solve in a row adds 10% to your points, up to double; a miss costs a life and resets the combo.</p>
       <p class="note">Best run: ${fmt(store.endless.best||0)} points, ${store.endless.bestSolved||0} solved.</p>
-      <button class="btn" data-act="newrun">Start a run</button></section>`;
+      <button class="btn glow" data-act="newrun">Start a run</button></section>`;
     afterRender(); return;
   }
-  const hearts="♥".repeat(Math.max(0,run.lives))+"♡".repeat(LIVES-Math.max(0,run.lives));
-  document.getElementById("meta").innerHTML=`<span class="chip">Endless</span><span class="chip">Puzzle ${run.log.length+(run.over?0:(run.counted?0:1))}</span><span class="chip lives" aria-label="${run.lives} lives left">${hearts}</span><span class="chip">${fmt(run.score)} pts</span>`;
   let html="";
   if(run.over){
-    html += `<section class="block"><span class="eyebrow">Run over</span><h2>${run.solved} solved · ${fmt(run.score)} points</h2>
-      <p class="lede">${run.score>=(store.endless.best||0)&&run.score>0?"A new best run.":`Best run: ${fmt(store.endless.best||0)} points.`}</p>
+    html += `<section class="block"><span class="eyebrow">Run over</span><h2>${run.solved} solved · <span data-count="${run.score}" data-key="run${store.endless.runs}">${fmt(run.score)}</span> points</h2>
+      <p class="lede">${run.score>=(store.endless.best||0)&&run.score>0?"A new best run.":`Best run: ${fmt(store.endless.best||0)} points.`} Best combo: ${run.bestCombo||0}.</p>
       <div class="result"><ul class="tally">${run.log.map((l,i)=>`<li class="${l.ok?"":"neg"}"><span>${i+1}. ${esc(byId[l.id].target)}</span><span>${l.ok?fmt(l.pts):"missed"}</span></li>`).join("")}
         <li class="total"><span>Run total</span><span>${fmt(run.score)}</span></li></ul>
       <div class="share"><span class="eyebrow">Share without spoilers</span><pre id="sharetxt">${esc(endlessShare(run))}</pre>
         <div><button class="btn" data-act="copy">Copy result</button> <span class="note" id="copied" role="status"></span></div></div></div>
-      <div class="nextbar"><button class="btn" data-act="newrun">Start a new run</button></div></section>`;
-    // the last puzzle stays visible below for review
+      <div class="nextbar"><button class="btn glow" data-act="newrun">Start a new run</button></div></section>`;
   }
   const c=ctx();
   if(c){
-    const stageNames=["Easy","Medium","Hard"];
-    if(!run.over) html += `<p class="note" style="margin:0 0 14px">Stage: <strong>${stageNames[run.stage]}</strong> · ×${RULES[run.stage].mult} points · ${RULES[run.stage].guesses} guesses${run.stage<2?` · ${run.stage===0?3-run.solved:7-run.solved} more solve${(run.stage===0?3-run.solved:7-run.solved)===1?"":"s"} to reach ${stageNames[run.stage+1]}`:""}</p>`;
+    if(!run.over && run.stage<2){ const left=(run.stage===0?3:7)-run.solved; html += `<p class="note" style="margin:0 0 12px;text-align:center">${left} more solve${left===1?"":"s"} to reach ${RULES[run.stage+1].name}</p>`; }
     html += playHTML(c);
-    if(finished(c.st)) html += roundResultHTML(c, run.over?"":`<button class="btn" data-act="nextendless">Next puzzle</button> <span class="note">${run.lives} li${run.lives===1?"fe":"ves"} left</span>`);
+    if(finished(c.st)) html += roundResultHTML(c, run.over?"":`<button class="btn glow" data-act="nextendless">Next puzzle →</button> <span class="note">${run.lives} li${run.lives===1?"fe":"ves"} left</span>`);
   }
   game.innerHTML=html;
   afterRender();
@@ -1261,82 +1492,87 @@ function renderEndless(){
 
 let opticsObs=null;
 function afterRender(){
-  drawOptics(); freshClue=-1;
+  drawOptics(); freshClue=-1; nova=false; missFlash=false;
   const o=document.getElementById("optics");
   if(opticsObs){ opticsObs.disconnect(); opticsObs=null; }
   if(o && window.ResizeObserver){ opticsObs=new ResizeObserver(()=>drawOptics()); opticsObs.observe(o); }
+  runCountUps(); tickCountdown();
 }
 
-// the board, guess panel, hints and explain round for one puzzle
+// the board, guess panel, hint and red-herring round for one puzzle
 function playHTML(c){
   const {p,st,rules}=c; const done=st.status!=="playing";
   const cards=p.clues.map((cl,i)=>{
     const beam=`style="--beam:var(--b${i+1})"`;
     if(i<st.revealed) return `<article class="card lit${i===freshClue?" fresh":""}" data-i="${i}" ${beam} aria-label="Clue ${i+1}: ${esc(cl.label)}"><div class="row"><span class="num"><i class="dot"></i>Clue ${i+1}</span><span class="dom">${esc(cl.domain)}</span></div><div class="label">${esc(cl.label)}</div></article>`;
     const next = i===st.revealed && !done;
-    return `<article class="card locked" data-i="${i}" ${beam}><div class="row"><span class="num"><i class="dot"></i>Clue ${i+1}</span></div>${next?`<button class="reveal-btn" data-act="reveal">Reveal clue ${i+1}</button>`:`<div class="label">Beam off</div>`}</article>`;
+    const cost = next && i===3 ? `<span class="cost">−200 early bonus</span>` : "";
+    return `<article class="card locked" data-i="${i}" ${beam}><div class="row"><span class="num"><i class="dot"></i>Clue ${i+1}</span></div>${next?`<button class="reveal-btn" data-act="reveal">Reveal clue ${i+1}</button>${cost}`:`<div class="label">Beam off</div>`}</article>`;
   }).join("");
-  const hub = st.status==="playing"?"?":esc(p.target);
-  let html = `<div class="optics ${st.status}" id="optics" data-revealed="${st.revealed}" data-fresh="${freshClue}"><svg class="light" aria-hidden="true"></svg><div class="clues">${cards}</div><div class="bench"></div><div class="focus" aria-live="polite"><span>${hub}</span></div></div>`;
+  let hub;
+  if(st.status!=="playing") hub=`<span class="ans">${esc(p.target)}</span>`;
+  else if(st.hints>0) hub=`<span class="slots" aria-label="Answer shape">${slotsHTML(p.target,st.hints)}</span>`;
+  else hub=`<span class="q">?</span>`;
+  const sparks = nova ? `<div class="sparks" aria-hidden="true">${[...Array(28)].map((_,k)=>`<i style="--a:${(k*360/28+(k%3)*4).toFixed(0)}deg;--d:${(90+(k*37)%110)}px;--c:var(--b${k%4+1});--t:${(0.8+(k%5)*0.12).toFixed(2)}s"></i>`).join("")}</div>` : "";
+  let html = `<div class="optics ${st.status}${nova?" nova":""}${missFlash?" miss":""}" id="optics" data-revealed="${st.revealed}" data-fresh="${freshClue}"><svg class="light" aria-hidden="true"></svg><div class="clues">${cards}</div><div class="bench"></div><div class="focus" aria-live="polite">${hub}${sparks}</div></div>`;
 
   if(!done){
-    const max=rules.guesses;
-    html += `<div class="panel" style="margin-top:26px">
+    const max=rules.guesses; const pot=potential(st,rules,c.combo);
+    const nextHint = st.hints<3 ? `<button class="hintbtn" data-act="hint"><span>Hint ${st.hints+1} of 3 · ${HINT_NAME[st.hints]}</span><span class="cost">−${HINT_COST[st.hints]}</span></button>` : "";
+    html += `<div class="panel">
+      <div class="energy" title="Points if you solve with your next guess">
+        <span class="el">Light</span><span class="ebar"><i style="width:${(pot.base/MAX_BASE*100).toFixed(1)}%"></i></span><span class="ev"><b>${fmt(pot.total)}</b> if you solve now</span></div>
       <form class="guessrow" id="gform" autocomplete="off">
-        <label for="guess" class="eyebrow" style="flex-basis:100%">Where do the clues converge?</label>
-        <input id="guess" name="guess" placeholder="Type a city, movement, tradition…" maxlength="60" aria-describedby="fb">
-        <button class="btn" type="submit">Guess</button>
+        <div class="gwrap"><input id="guess" name="guess" placeholder="Where do the clues converge?" maxlength="60" aria-describedby="fb" aria-autocomplete="list" aria-controls="sugg" autocomplete="off" spellcheck="false">
+          <ul id="sugg" class="sugg" role="listbox" hidden></ul></div>
+        <button class="btn glow" type="submit">Guess</button>
       </form>
       <div class="feedback ${feedback.kind}" id="fb" role="status">${esc(feedback.text)}</div>
-      <div class="status"><span>Guesses left <span class="pips">${[...Array(max)].map((_,k)=>`<span class="pip ${k<st.wrong?"used":""}"></span>`).join("")}</span></span>
-        <span class="mono">${st.revealed}/4 clues shown</span>
-        <button class="btn ghost" data-act="giveup" style="padding:6px 10px;font-size:13px">${pendingGiveUp?"Tap again to reveal the answer":"Give up"}</button></div>
-      ${st.guesses.length?`<ul class="log">${st.guesses.map(g=>`<li class="${g.warm?"warm":""}">${esc(g.text)}</li>`).join("")}</ul>`:""}
-      <div class="hints">${[0,1,2].map(k=>{
-        const open=k<st.hints; const avail=k===st.hints;
-        return `<div class="hint ${open?"open":""}"><div class="h"><span class="eyebrow">Hint ${k+1} · ${["Answer type","Structure","Context"][k]}</span><span class="cost">−${HINT_COST[k]}</span></div>${open?`<p>${esc(hintText(p,k))}</p>`:`<button data-act="hint" ${avail?"":"disabled"}>${avail?"Use hint":"Use hint "+k+" first"}</button>`}</div>`;
-      }).join("")}</div>
+      <div class="status"><span class="pips" aria-label="${max-st.wrong} guesses left">${[...Array(max)].map((_,k)=>`<span class="pip ${k<st.wrong?"used":""}"></span>`).join("")}</span>
+        ${nextHint}
+        <button class="linkbtn" data-act="giveup">${pendingGiveUp?"Tap again to reveal the answer":"Give up"}</button></div>
+      ${st.guesses.length||st.hints?`<ul class="log">${st.guesses.map(g=>`<li class="${g.warm?"warm":""}">${esc(g.text)}</li>`).join("")}${[...Array(st.hints)].map((_,k)=>`<li class="hinted">💡 ${esc(hintText(p,k))}</li>`).join("")}</ul>`:""}
     </div>`;
   } else {
-    if(st.status==="failed") html += `<p class="feedback cold" style="margin-top:22px">${st.wrong>=rules.guesses?"Out of guesses.":"Answer revealed."} The clues converge on <strong>${esc(p.target)}</strong>.</p>`;
-    else html += `<p class="feedback good" style="margin-top:22px">${esc(feedback.text||`Solved: ${p.target}.`)}</p>`;
-    if(st.hints) html += `<ul class="log" style="margin-top:4px">${[...Array(st.hints)].map((_,k)=>`<li class="warm" style="text-decoration:none">Hint ${k+1}: ${esc(hintText(p,k))}</li>`).join("")}</ul>`;
+    if(st.status==="failed") html += `<p class="feedback cold center">${st.wrong>=rules.guesses?"Out of guesses.":"Answer revealed."} The clues converge on <strong>${esc(p.target)}</strong>.</p>`;
+    else html += `<p class="feedback good center">${esc(feedback.text||`Solved: ${p.target}.`)}</p>`;
   }
 
-  if(st.status==="solved"){
-    const all = Object.keys(st.pick).length===4;
-    html += `<section class="block" style="margin-top:26px"><span class="eyebrow">Bonus round</span><h2>Explain the convergence</h2>
-      <p class="lede">${st.explained?`You matched ${st.correct} of 4 connections.`:"Match each clue to how it connects with the answer. All four correct earns +100."}</p>
-      ${p.clues.map((cl,i)=>{
-        const opts=optionsFor(p,i);
-        return `<div class="ex" style="--beam:var(--b${i+1})"><div class="row" style="display:flex;justify-content:space-between;gap:8px"><span class="clue">${esc(cl.label)}</span><span class="eyebrow">Clue ${i+1}</span></div>
-          <div class="opts" role="group" aria-label="Relationship for ${esc(cl.label)}">${opts.map(o=>{
-            let cls="opt"; if(st.explained){ if(cl.fam.includes(o)&&(st.pick[i]===o||o===cl.fam[0])) cls+=" right"; else if(st.pick[i]===o) cls+=" wrong"; }
-            return `<button class="${cls}" data-act="pick" data-i="${i}" data-f="${o}" aria-pressed="${st.pick[i]===o}" ${st.explained?"disabled":""}>${esc(FAM[o])}</button>`;
-          }).join("")}</div>
-          ${st.explained?pathHTML(cl)+`<p class="why">${esc(cl.why)}</p>`:""}</div>`;
-      }).join("")}
-      ${st.explained?"":`<div><button class="btn" data-act="explain" ${all?"":"disabled"}>Check connections</button> <button class="btn ghost" data-act="skipexplain">Skip bonus</button></div>`}
-    </section>`;
-  }
-  if(st.status==="failed"){
-    html += `<section class="block" style="margin-top:26px"><span class="eyebrow">How it converged</span><h2>${esc(p.target)}</h2>
-      ${p.clues.map((cl,i)=>`<div class="ex" style="--beam:var(--b${i+1})"><span class="clue">${esc(cl.label)}</span>${pathHTML(cl)}<p class="why">${esc(cl.why)}</p></div>`).join("")}</section>`;
-  }
+  if(st.status==="solved") html += herringHTML(p,st);
+  if(st.status==="failed") html += connectionsHTML(p,null);
+  return html;
+}
+
+function connectionsHTML(p,st){
+  return `<section class="block conn"><span class="eyebrow">How it converged</span>
+    ${p.clues.map((cl,i)=>`<div class="ex" style="--beam:var(--b${i+1});--k:${i}"><span class="clue">${esc(cl.label)}</span>${pathHTML(cl)}<p class="why">${esc(cl.why)}</p></div>`).join("")}</section>`;
+}
+function herringHTML(p,st){
+  const h=herringOf(p);
+  let html=connectionsHTML(p,st);
+  if(!h){ return html; }
+  html += `<section class="block herring"><span class="eyebrow">Bonus · +100</span><h2>Spot the red herring</h2>
+    <p class="lede">${st.explained?(st.correct===1?"Spotted. ":"Not quite. ")+`<strong>${esc(p.clues[h.i].label)}</strong> could just as easily have led to <strong>${esc(h.rival)}</strong>.`:"Which clue could most easily have led you somewhere else?"}</p>
+    <div class="hopts">${p.clues.map((cl,i)=>{
+      let cls="hopt"; if(st.explained){ if(i===h.i) cls+=" right"; else if(st.herring===i) cls+=" wrong"; }
+      return `<button class="${cls}" style="--beam:var(--b${i+1})" data-act="herring" data-i="${i}" ${st.explained?"disabled":""}>${esc(cl.label)}</button>`;
+    }).join("")}</div>
+    ${st.explained?"":`<div><button class="linkbtn" data-act="skipexplain">Skip bonus</button></div>`}</section>`;
   return html;
 }
 
 function roundResultHTML(c, nextBtn){
   const sc=scoreOf(c.p,c.st,c.rules);
   const label = c.kind==="daily" ? `Round ${currentRound+1} · ${c.rules.name}` : `${c.rules.name} stage`;
-  return `<section class="block" style="margin-top:26px"><span class="eyebrow">${esc(label)}</span>
+  const key = c.kind+":"+c.p.id;
+  return `<section class="block" style="margin-top:22px"><span class="eyebrow">${esc(label)}</span>
     <ul class="tally" style="max-width:520px">${sc.rows.map(r=>`<li class="${r[1]<0?"neg":(r[1]>0&&r[0]!=="Starting points"?"pos":"")}"><span>${esc(r[0])}</span><span>${r[1]>0&&r[0]!=="Starting points"?"+":""}${fmt(r[1])}</span></li>`).join("")}
-      <li class="total"><span>Points</span><span>${fmt(sc.total)}</span></li></ul>
+      <li class="total"><span>Points</span><span data-count="${sc.total}" data-key="${esc(key)}">${fmt(sc.total)}</span></li></ul>
     ${nextBtn?`<div class="nextbar">${nextBtn}</div>`:""}</section>`;
 }
 
 function pathHTML(c){
-  const parts=c.path.map((x,k)=>k%2===1?`<span class="rel">—${esc(x)}→</span>`:`<b>${esc(x)}</b>`);
+  const parts=c.path.map((x,k)=>k%2===1?`<span class="rel">—${esc(x.replace(/_/g," "))}→</span>`:`<b>${esc(x)}</b>`);
   return `<div class="path">${parts.join("")}</div>`;
 }
 
@@ -1348,11 +1584,57 @@ function renderArchive(){
     const dots = ds ? ds.rounds.map(st=>finished(st)?(st.status==="solved"?"🟩":"🟥"):"⬜").join("") : "⬜⬜⬜";
     const lab = t.done ? fmt(t.total)+" pts" : (ds && ds.rounds.some(st=>st.guesses.length||finished(st)) ? "In progress" : "Not started");
     return `<li><button data-act="open" data-day="${s.day}" aria-current="${mode==="daily"&&s.day===currentDay}"><span class="n">#${s.day+1}</span><span>${esc(dateOf(s.day))}${s.day===todayIdx?" · today":""}</span><span aria-hidden="true">${dots}</span><span class="st ${t.done?"solved":""}">${lab}</span></button></li>`;
-  }).join("")}</ul>
-  <p class="note">${schedule.length} daily games of three rounds are scheduled, with no answer repeating within 90 days and no clue within 14. ${schedule.length-available.length>0?`${schedule.length-available.length} more unlock on the days ahead.`:""}</p>`;
+  }).join("")}</ul>`;
 }
 
-function renderEditor(){}
+// ---------- first-visit intro ----------
+const INTRO=[
+  {h:"Four clues. One hidden answer.", p:"Each clue is a beam of light. Find the city, movement, tradition or idea where all four converge.",
+   art:`<svg viewBox="0 0 220 120"><g class="ib">${[30,80,140,190].map((x,i)=>`<line x1="${x}" y1="6" x2="${x}" y2="40" stroke="var(--b${i+1})"/><line x1="${x}" y1="40" x2="110" y2="100" stroke="var(--b${i+1})"/>`).join("")}</g><ellipse cx="110" cy="40" rx="96" ry="10" class="il"/><circle cx="110" cy="100" r="9" class="ifo"/></svg>`},
+  {h:"Guess early, glow brighter.", p:"Two clues start lit. Guess any time. Every extra clue, hint or wrong guess dims your light meter, and that's your score.",
+   art:`<svg viewBox="0 0 220 120"><rect x="20" y="52" width="180" height="14" rx="3" class="ie"/><rect x="20" y="52" width="130" height="14" rx="3" class="ief"/><text x="110" y="96" text-anchor="middle" class="it">1,400 if you solve now</text></svg>`},
+  {h:"Three rounds a day. Endless after.", p:"Daily rounds climb from Easy to Medium to Hard, worth ×1, ×1.5 and ×2. Endless keeps going until you've used your three lives.",
+   art:`<svg viewBox="0 0 220 120">${["var(--b4)","var(--b2)","var(--b3)"].map((c,i)=>`<path d="M${45+i*65} 24 L${73+i*65} 84 L${17+i*65} 84Z" fill="none" stroke="${c}" stroke-width="2.4" style="filter:drop-shadow(0 0 6px ${c})"/>`).join("")}<text x="110" y="110" text-anchor="middle" class="it">×1 · ×1.5 · ×2</text></svg>`}
+];
+function renderIntro(){
+  const el=document.getElementById("intro");
+  if(introStep<0){ el.hidden=true; el.innerHTML=""; document.body.classList.remove("modal"); return; }
+  const s=INTRO[introStep]; el.hidden=false; document.body.classList.add("modal");
+  el.innerHTML=`<div class="introcard" role="dialog" aria-modal="true" aria-labelledby="introh">
+    <div class="iart">${s.art}</div>
+    <h2 id="introh">${s.h}</h2><p>${s.p}</p>
+    <div class="idots">${INTRO.map((_,k)=>`<i class="${k===introStep?"on":""}"></i>`).join("")}</div>
+    <div class="ibtns"><button class="linkbtn" data-act="introskip">Skip</button>
+      ${introStep<INTRO.length-1?`<button class="btn glow" data-act="intronext">Next</button>`:`<button class="btn glow" data-act="introdone">Let's play</button>`}</div>
+    <button class="linkbtn full" data-act="rules">Full rules</button></div>`;
+  const b=el.querySelector(".btn"); if(b) b.focus();
+}
+function closeIntro(){ introStep=-1; store.seenIntro=true; save(); renderIntro(); }
+
+// ---------- count-ups and countdown ----------
+function runCountUps(){
+  const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-count]").forEach(el=>{
+    const key=el.dataset.key; const to=+el.dataset.count;
+    if(reduce || counted.has(key) || !to){ counted.add(key); return; }
+    counted.add(key);
+    const t0=performance.now(), dur=Math.min(1400, 500+to/6);
+    const step=now=>{ const k=Math.min(1,(now-t0)/dur); const e=1-Math.pow(1-k,3); el.textContent=fmt(to*e); if(k<1) requestAnimationFrame(step); };
+    el.textContent="0"; requestAnimationFrame(step);
+  });
+}
+let cdTimer=null;
+function tickCountdown(){
+  const els=document.querySelectorAll(".countdown");
+  if(!els.length){ if(cdTimer){ clearInterval(cdTimer); cdTimer=null; } return; }
+  const upd=()=>{ document.querySelectorAll(".countdown").forEach(el=>{
+    const day=+el.dataset.to; const [ey,em,ed]=EPOCH.split("-").map(Number);
+    const target=new Date(ey,em-1,ed+day,0,0,0).getTime(); let ms=Math.max(0,target-Date.now());
+    const h=Math.floor(ms/3600000), m=Math.floor(ms/60000)%60, s=Math.floor(ms/1000)%60;
+    el.textContent = h>=48 ? `${Math.round(h/24)} days` : `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+  }); };
+  upd(); if(!cdTimer) cdTimer=setInterval(upd,1000);
+}
 
 // ---------- optics drawing ----------
 const f1=v=>v.toFixed(1);
@@ -1373,6 +1655,8 @@ function drawOptics(){
   const cards=[...box.querySelectorAll(".card")];
   let dark="", halo="", glow="", core="";
   const bw=phone?11:17;
+  const gh = (typeof ghost!=="undefined" && ghost && !solved && !failed) ? ghost : null;
+  const gx = fx + (phone?-0.26:-0.3)*W, gy = fy - (phone?18:26);
 
   cards.forEach(card=>{
     const i=+card.dataset.i; const r=card.getBoundingClientRect();
@@ -1381,10 +1665,12 @@ function drawOptics(){
     const col=`var(--b${i+1})`;
     if(i<revealed){
       const w=bw/2;
+      const bent = gh && gh.idx.includes(i);
+      const tx = bent?gx:fx, ty = bent?gy:fy;
       // incoming parallel band, refracted through the prism into a cone that meets at the focal point
-      const d=`M${f1(x0-w)} ${f1(y0)} L${f1(x0+w)} ${f1(y0)} L${f1(x0+w)} ${f1(lensY)} L${f1(fx+0.8)} ${f1(fy)} L${f1(fx-0.8)} ${f1(fy)} L${f1(x0-w)} ${f1(lensY)}Z`;
-      const line=`M${f1(x0)} ${f1(y0)} L${f1(x0)} ${f1(lensY)} L${f1(fx)} ${f1(fy)}`;
-      const cls = i===fresh?" fresh":"";
+      const d=`M${f1(x0-w)} ${f1(y0)} L${f1(x0+w)} ${f1(y0)} L${f1(x0+w)} ${f1(lensY)} L${f1(tx+0.8)} ${f1(ty)} L${f1(tx-0.8)} ${f1(ty)} L${f1(x0-w)} ${f1(lensY)}Z`;
+      const line=`M${f1(x0)} ${f1(y0)} L${f1(x0)} ${f1(lensY)} L${f1(tx)} ${f1(ty)}`;
+      const cls = (i===fresh?" fresh":"")+(bent?" bent":"");
       halo += `<path class="beam-halo${cls}" d="${d}" style="fill:${col}"/>`;
       glow += `<path class="beam-glow${cls}" d="${d}" style="fill:${col}"/>`;
       core += `<path class="beam${cls}" d="${d}" style="fill:${col}"/>`
@@ -1430,6 +1716,7 @@ function drawOptics(){
     <path class="spike" d="M${f1(fx-sl)} ${f1(fy)} L${f1(fx)} ${f1(fy-1.4)} L${f1(fx+sl)} ${f1(fy)} L${f1(fx)} ${f1(fy+1.4)}Z" fill="url(#spikeH)"/>
     <path class="spike" d="M${f1(fx)} ${f1(fy-sl*0.8)} L${f1(fx+1.4)} ${f1(fy)} L${f1(fx)} ${f1(fy+sl*0.8)} L${f1(fx-1.4)} ${f1(fy)}Z" fill="url(#spikeV)"/></g>`;
 
+  const ghostMark = gh ? `<g class="ghostpt"><circle cx="${f1(gx)}" cy="${f1(gy)}" r="${phone?16:22}" fill="url(#bloomGrad)" opacity=".55"/><circle cx="${f1(gx)}" cy="${f1(gy)}" r="3.5" fill="#fff"/><text x="${f1(gx)}" y="${f1(gy-(phone?22:30))}" text-anchor="middle">${String(gh.label).replace(/[&<>]/g,"").slice(0,28)}?</text></g>` : "";
   svg.innerHTML=`<defs>
     <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="${phone?5:8}"/></filter>
     <filter id="soft2" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="${phone?2.5:4}"/></filter>
@@ -1444,7 +1731,7 @@ function drawOptics(){
     <radialGradient id="fanFade" cx="${f1(fx)}" cy="${f1(fy)}" r="${f1(spread)}" gradientUnits="userSpaceOnUse"><stop offset=".08" stop-color="#fff" stop-opacity="0"/><stop offset=".22" stop-color="#fff" stop-opacity="1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
     <mask id="fanMask" maskUnits="userSpaceOnUse" x="0" y="0" width="${f1(W)}" height="${f1(H)}"><rect x="0" y="0" width="${f1(W)}" height="${f1(H)}" fill="url(#fanFade)"/></mask>
   </defs>
-  ${dark}<g class="additive"><g filter="url(#wide)">${halo}${halo}</g><g filter="url(#soft)">${glow}</g>${core}</g>${lens}${spectrum}${bloom}${spikes}`;
+  ${dark}<g class="additive"><g filter="url(#wide)">${halo}${halo}</g><g filter="url(#soft)">${glow}</g>${core}</g>${lens}${spectrum}${bloom}${spikes}${ghostMark}`;
 }
 
 // ---------- starfield ----------
@@ -1476,7 +1763,54 @@ function drawOptics(){
 })();
 
 
+// ---------- suggestions ----------
+let suggIdx=-1;
+function suggestFor(q, exclude){
+  const n=norm(q); if(n.length<2) return [];
+  const out=[], mid=[];
+  for(const it of SUGG){
+    if(exclude.has(it.n)) continue;
+    if(it.n.startsWith(n) || it.w.some(w=>w.startsWith(n))) out.push(it);
+    else if(n.length>=3 && it.n.includes(n)) mid.push(it);
+    if(out.length>=40) break;
+  }
+  out.sort((a,b)=>(b.n.startsWith(n)-a.n.startsWith(n))||a.n.length-b.n.length);
+  return out.concat(mid.sort((a,b)=>a.n.length-b.n.length)).slice(0,6);
+}
+function showSugg(){
+  const input=document.getElementById("guess"), ul=document.getElementById("sugg"); if(!input||!ul) return;
+  const c=ctx(); const ex=new Set((c?c.st.guesses:[]).map(g=>norm(g.text)));
+  const list=suggestFor(input.value, ex); suggIdx=-1;
+  if(!list.length || norm(input.value)===(list[0]&&list[0].n)&&list.length===1){ ul.hidden=true; ul.innerHTML=""; input.setAttribute("aria-expanded","false"); return; }
+  ul.innerHTML=list.map((it,k)=>`<li role="option" id="sg${k}" data-v="${esc(it.s)}">${esc(it.s)}</li>`).join("");
+  ul.hidden=false; input.setAttribute("aria-expanded","true");
+}
+function moveSugg(d){
+  const ul=document.getElementById("sugg"); if(!ul||ul.hidden) return false;
+  const items=[...ul.children]; if(!items.length) return false;
+  suggIdx=(suggIdx+d+items.length)%items.length;
+  items.forEach((li,k)=>li.setAttribute("aria-selected",k===suggIdx));
+  document.getElementById("guess").setAttribute("aria-activedescendant","sg"+suggIdx);
+  return true;
+}
+function pickSugg(v){
+  const input=document.getElementById("guess"), ul=document.getElementById("sugg");
+  input.value=v; ul.hidden=true; ul.innerHTML=""; suggIdx=-1; input.focus();
+}
+document.addEventListener("input",e=>{ if(e.target.id==="guess") showSugg(); });
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape" && introStep>=0){ closeIntro(); return; }
+  if(e.target.id!=="guess") return;
+  if(e.key==="ArrowDown"){ if(moveSugg(1)) e.preventDefault(); }
+  else if(e.key==="ArrowUp"){ if(moveSugg(-1)) e.preventDefault(); }
+  else if(e.key==="Escape"){ const ul=document.getElementById("sugg"); if(ul){ ul.hidden=true; } }
+  else if(e.key==="Enter" && suggIdx>=0){ const li=document.getElementById("sg"+suggIdx); if(li){ e.preventDefault(); pickSugg(li.dataset.v); } }
+});
+document.addEventListener("mousedown",e=>{ const li=e.target.closest("#sugg li"); if(li){ e.preventDefault(); pickSugg(li.dataset.v); } });
+document.addEventListener("focusout",e=>{ if(e.target.id==="guess") setTimeout(()=>{ const ul=document.getElementById("sugg"); if(ul) ul.hidden=true; },120); });
+
 // ---------- actions ----------
+let ghostTimer=null;
 document.addEventListener("submit",e=>{
   if(e.target.id!=="gform") return;
   e.preventDefault();
@@ -1488,31 +1822,40 @@ document.addEventListener("submit",e=>{
   if(isCorrect(p,raw)){
     st.guesses.push({text:raw, ok:true}); st.status="solved"; st.revealedAtSolve=st.revealed; st.revealed=4;
     feedback={text:`Correct: ${p.target}. ${st.revealedAtSolve<4?`Solved with ${st.revealedAtSolve} of 4 clues.`:"All four clues converge here."}`,kind:"good"};
+    nova=true; ghost=null; sfx.solve();
+    if(!herringOf(p)) st.explained=true;
   } else {
     const w=warmFor(p,raw);
     st.guesses.push({text:raw, ok:false, warm:!!w}); st.wrong++;
-    if(st.wrong>=rules.guesses){ st.status="failed"; feedback={text:"",kind:""}; }
+    const g=norm(raw); const idx=[];
+    for(let i=0;i<st.revealed;i++){ const cm=p.clues[i].c||{}; if(Object.keys(cm).some(k=>norm(k)===g)) idx.push(i); }
+    if(st.wrong>=rules.guesses){ st.status="failed"; feedback={text:"",kind:""}; sfx.wrong(); }
     else {
-      // graph-aware feedback: how many of the clues on screen genuinely point to this guess
-      const g=norm(raw); let hits=0;
-      for(let i=0;i<st.revealed;i++){ const cm=p.clues[i].c||{}; if(Object.keys(cm).some(k=>norm(k)===g)) hits++; }
-      let msg=w;
+      let msg=w; const hits=idx.length;
       if(!msg && hits>0) msg = hits===st.revealed ? `That fits every clue shown so far, but not the whole puzzle. Try revealing another clue.` : `That fits ${hits} of the ${st.revealed} clues shown, but not all of them.`;
       if(msg) st.guesses[st.guesses.length-1].warm=true;
       const left=rules.guesses-st.wrong;
       feedback={text: (msg||"Not where these clues converge.")+` ${left} guess${left===1?"":"es"} left.`, kind: msg?"warm":"cold"};
+      if(hits>0){ ghost={idx, label:raw}; sfx.near(); clearTimeout(ghostTimer); ghostTimer=setTimeout(()=>{ ghost=null; const o=document.getElementById("optics"); if(o){ o.classList.add("snap"); drawOptics(); setTimeout(()=>o.classList.remove("snap"),500);} },1700); }
+      else { missFlash=true; sfx.wrong(); }
     }
   }
   settle(); save(); render(); if(st.status==="playing") focusGuess();
+  if(st.status!=="playing"){ const o=document.getElementById("optics"); if(o) o.scrollIntoView({behavior:"smooth",block:"start"}); }
 });
 function focusGuess(){ const g=document.getElementById("guess"); if(g) g.focus(); }
 function settle(){ if(mode==="endless") settleEndless(); }
-function resetView(){ feedback={text:"",kind:""}; pendingGiveUp=false; }
+function resetView(){ feedback={text:"",kind:""}; pendingGiveUp=false; ghost=null; }
 function toTop(){ window.scrollTo({top:0,behavior:"smooth"}); }
 
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-act]"); if(!b) return;
   const act=b.dataset.act;
+  if(act==="intronext"){ introStep++; renderIntro(); return; }
+  if(act==="introdone"||act==="introskip"){ closeIntro(); return; }
+  if(act==="intro"){ introStep=0; renderIntro(); return; }
+  if(act==="rules"){ closeIntro(); const h=document.getElementById("howto"); h.open=true; h.scrollIntoView({behavior:"smooth"}); return; }
+  if(act==="sound"){ store.settings.sound=!store.settings.sound; save(); renderBar(); if(store.settings.sound) sfx.reveal(0); return; }
   if(act==="mode"){ mode=b.dataset.m; resetView(); render(); toTop(); return; }
   if(act==="open"){ mode="daily"; currentDay=+b.dataset.day; currentRound=firstOpenRound(currentDay); resetView(); render(); toTop(); return; }
   if(act==="round"){ const k=+b.dataset.k; const ds=dayState(currentDay); if(k===0||finished(ds.rounds[k-1])){ currentRound=k; resetView(); render(); toTop(); } return; }
@@ -1526,21 +1869,22 @@ document.addEventListener("click",e=>{
   }
   const c=ctx(); if(!c) return; const {p,st}=c;
   if(act!=="giveup") pendingGiveUp=false;
-  if(act==="reveal" && st.status==="playing" && st.revealed<4){ st.revealed++; freshClue=st.revealed-1; feedback={text:"",kind:""}; save(); render(); return; }
-  if(act==="hint" && st.status==="playing" && st.hints<3){ st.hints++; save(); render(); return; }
+  if(act==="reveal" && st.status==="playing" && st.revealed<4){ st.revealed++; freshClue=st.revealed-1; feedback={text:"",kind:""}; ghost=null; sfx.reveal(freshClue); save(); render(); return; }
+  if(act==="hint" && st.status==="playing" && st.hints<3){ st.hints++; sfx.hint(); save(); render(); return; }
   if(act==="giveup" && st.status==="playing"){
     if(!pendingGiveUp){ pendingGiveUp=true; render(); return; }
-    pendingGiveUp=false; st.status="failed"; settle(); save(); render(); return;
+    pendingGiveUp=false; st.status="failed"; sfx.wrong(); settle(); save(); render(); return;
   }
-  if(act==="pick" && st.status==="solved" && !st.explained){ st.pick[b.dataset.i]=b.dataset.f; save(); render(); return; }
-  if(act==="explain" && Object.keys(st.pick).length===4){
-    st.correct=p.clues.filter((cl,i)=>cl.fam.includes(st.pick[i])).length; st.explained=true; settle(); save(); render(); return;
+  if(act==="herring" && st.status==="solved" && !st.explained){
+    const h=herringOf(p); st.herring=+b.dataset.i; st.correct = h && h.i===st.herring ? 1 : 0; st.explained=true;
+    sfx.herring(st.correct===1); settle(); save(); render(); return;
   }
-  if(act==="skipexplain"){ st.explained=true; st.correct=0; st.pick={}; settle(); save(); render(); return; }
+  if(act==="skipexplain"){ st.explained=true; st.correct=0; st.herring=null; settle(); save(); render(); return; }
 });
 
 (function(){ const el=document.getElementById("graphstats"); if(el && typeof GRAPH_STATS!=="undefined") el.textContent=`Puzzles are built from a graph of ${fmt(GRAPH_STATS.concepts)} cultural topics and ${fmt(GRAPH_STATS.connections)} documented connections. `; })();
 render();
+
 })();
 
 </script>
