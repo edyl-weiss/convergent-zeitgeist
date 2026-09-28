@@ -1,4 +1,3 @@
-Full rules
 Find the single cultural concept that connects all four clues. It could be a city, country, cultural movement, historical era, tradition, religion, artistic style, cuisine, trade network, or another recognisable cultural concept.
 
 Clues arrive in order. Clues 1 and 2 start lit. Clue 1 is broad; clue 2 adds a new angle and may lead you astray; clue 3 narrows the field; clue 4 settles it. Guess any time. The light meter under the board shows what you'd score if your next guess is right.
